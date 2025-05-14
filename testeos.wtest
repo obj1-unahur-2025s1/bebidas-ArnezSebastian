@@ -1,0 +1,30 @@
+import bebidas.*
+
+test "tito consume 1 dosis de whisky, y luego una dosis de terere, la bebida tomada cambia a 
+la última que él tomo" {
+  tito.consumir(1, whisky)
+  tito.consumir(1, terere)
+  assert.equals(terere, tito.bebidaTomada())
+}
+
+test "tito consume 1 dosis de whisky, y luego una dosis de terere, la velocidad de tito cambia 
+de 6.3 a 7" {
+  tito.consumir(1, whisky)
+  tito.consumir(1, terere)
+  assert.equals(7, tito.velocidad())
+}
+
+test "tito consume 1 dosis de whisky, lo cual hace que su velocidad cambie a 6,3" {
+  tito.consumir(1, whisky)
+  assert.equals(6.3, tito.velocidad())
+}
+
+test "tito consume 1 dosis de terere, lo cual hace que su velocidad se modifique a 7" {
+  tito.consumir(1, terere)
+  assert.equals(7, tito.velocidad())
+}
+
+test "tito consume 5 dosis de cianuro, lo cual hace que su velocidad se modifique 0" {
+  tito.consumir(5, cianuro)
+  assert.equals(0, tito.velocidad())
+}
